@@ -1,0 +1,27 @@
+plugins {
+	id "org.springframework.boot" version "$springBoot"
+	id "com.github.diogopeixoto.java-application-conventions"
+}
+
+version = "0.0.1"
+
+bootJar {
+	enabled = false
+}
+
+jar {
+	enabled = true
+}
+
+dependencies {
+	implementation project(":repository")
+	implementation project(":core")
+
+	implementation "org.springframework.boot:spring-boot-starter"
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	
+	testImplementation "org.junit.jupiter:junit-jupiter"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:$junit"
+    testImplementation "org.mockito:mockito-junit-jupiter"
+	testImplementation "org.springframework.boot:spring-boot-starter-test"
+}

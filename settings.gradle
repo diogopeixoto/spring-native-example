@@ -1,0 +1,10 @@
+pluginManagement {
+	repositories {
+		maven { url 'https://repo.spring.io/release' }
+		gradlePluginPortal()
+	}
+}
+
+rootProject.name = 'empresas'
+
+include('application', 'controller', 'core', 'repository')

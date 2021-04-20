@@ -1,0 +1,10 @@
+plugins {
+	id "com.github.diogopeixoto.java-application-conventions"
+}
+
+version = "0.0.1"
+
+dependencies {
+	testImplementation "org.junit.jupiter:junit-jupiter-api:$junitApi"
+	testImplementation "org.mockito:mockito-junit-jupiter:$mockitoJunit"
+}

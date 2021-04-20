@@ -1,0 +1,32 @@
+plugins {
+	id "com.diffplug.spotless" version "$spotless"
+	id "io.spring.dependency-management" version "$dependecyManagement"
+}
+
+version = "0.0.1"
+
+subprojects {
+	apply plugin: "io.spring.dependency-management"
+	apply plugin: "java"
+	apply plugin: "eclipse"
+	apply plugin: "idea"
+	apply plugin: "com.diffplug.spotless"
+	
+	spotless {
+		java {
+			targetExclude("**/build/generated/**")
+		
+			eclipse().configFile(rootProject.file("src/eclipse/eclipse-formatter-settings.xml"))
+			removeUnusedImports()
+			trimTrailingWhitespace()
+			endWithNewline()
+		}
+	}
+	
+	
+	dependencyManagement {
+    	imports {
+      		mavenBom("org.springframework.boot:spring-boot-dependencies:$springBoot")
+    	}
+  	}
+}
